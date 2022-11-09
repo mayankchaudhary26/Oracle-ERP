@@ -1,0 +1,154 @@
+What is P2P?
+P2P stands for Procure to Pay. It’s a business process which involves the fulfillment of goods, items, resources etc in an organization inventory to keep business running smoothly and it ends with payment followed by reconciliation.
+
+
+P2P Process:
+This cycle involves following steps from creating a requisition to transfer the details to GL.
+1.	Create Requisition
+2.	Approve requisition
+3.	Create Purchase Order
+4.	Approve Purchase Order
+5.	Create Receipt after receiving the goods
+6.	Create an Invoice in AP
+7.	Pay the invoice
+8.	Transfer, Import and Post Journal to GL
+
+
+
+
+Now coming to Requisition these are of two types:
+1.	Internal Requisition
+2.	Purchase Requisition
+Requisition Types:
+
+1.	Internal Requisition: Internal requisitions provide the mechanism for requesting and  transferring material from one inventory to other inventory
+2.	Purchasing Requisition: Purchase requisitions are used for requesting material from Suppliers.
+
+RFQ
+A request for quotation (RFQ) is sent to a supplier to request pricing and other information for an item. A quotation is the supplier’s response to that RFQ. You send an RFQ to a supplier by fax, making a phone call, or using Oracle iSupplier Portal. A supplier can send a quotation, whether or not in response to an RFQ, is through the Purchasing Documents Open Interface.If you don’t receive quotations electronically from your supplier, you can create the quotation manually using the Quotations window, or copy the quotation from an RFQ.
+
+Internal Requisitions are created if the Items are to be imported from one Inventory location to another location in the same organization. Here the source of the requisition would be INVENTORY. There is no approval process for internal requisition.
+Purchase Requisitions are created if the goods are to be imported from external suppliers. Here the source of the requisition would be SUPPLIERS. The purchase requisition are been sent for approvals.
+Status of Purchase Requisitions
+1.	Incomplete
+2.	In Process, 
+3.	Pre-Approved,
+4.	Approved,
+5.	Cancelled, 
+6.	Rejected,
+7.	Returned
+Going ahead we would discuss about the various APPROVAL METHODS for the Requisitions
+Why we need requisition approval?
+Requisition approval is required to restrict the requisition that has been raised.
+Requisition approvals can be done in two ways:
+1.	EMP/SUPERVISOR Hierarchy
+2.	POSITION Hierarchy
+In EMP/SUPERVISOR Hierarchy, based on the requisition amount that is raised the requisition travels the hierarchy and reached the appropriate person who has the authority to approve or reject the requisition.
+In POSITION Hierarchy, the requisition may reach the appropriate person who has the authority to approve in two ways:
+1.	Direct
+2.	Hierarchy
+To avoid the confusion between the two approval methods(POSITION Hierarchy and EMP/SUPERVISOR Hierarchy) ,So in case of POSITION Hierarchy there might be many hierarchies which can be named at one time which is not possible in case of EMP/SUPERVISOR Hierarchy where only one hierarchy is allowed at one time.
+
+
+
+
+
+
+
+
+
+
+Purchase Order Types
+There are mainly 4 types of Purchase Orders
+·         Standard Purchase Order
+·         Blanket Purchase Agreements
+·         Contract Purchase Agreements
+·         Planned Purchase Orders
+Standard Purchase Order
+You generally create standard purchase orders for one-time purchase of various items. You create standard purchase orders when you know the details of the goods or services you require, estimated costs, quantities, delivery schedules, and accounting distributions. 
+Blanket Purchase Agreements (BPA)
+You create blanket purchase agreements when you know the detail of the goods or services you plan to buy from a specific supplier in a period, but you do not yet know the detail of your delivery schedules. You can use blanket purchase agreements to specify negotiated prices for your items before actually purchasing them.
+You can issue a Blanket release against a BPA to place the actual order (as long as the release is within the blanket agreement effectively dates).
+Contract Purchase Agreements
+You create contract purchase agreements with your suppliers to agree on specific terms and conditions without indicating the goods and services that you will be purchasing. You can later issue standard purchase orders referencing your contracts.
+Planned Purchase Orders
+A planned purchase order is a long-term agreement committing to buy items or services from a single source. You must specify tentative delivery schedules and all details for goods or services that you want to buy, including charge account, quantities, and estimated cost. 
+You can issue scheduled releases against a planned purchase order to place the actual orders. If you use encumbrance accounting, you can use the planned purchase order to reserve funds for long term agreements.
+
+PO Match Options in Oracle Apps
+1.	Invoice Match to PO 
+2.	Invoice Match to Receipt
+
+
+Status of PO in Oracle Apps
+1. Incomplete
+2. Requires Re-approval
+3. Approved
+4. In-process
+5. Pre-approved
+6. Rejected
+
+
+Match Approval Level: 2-Way, 3-Way, 4-Way.
+
+In 2-way:  
+ Whatever you have ordered for the PO you will make the payment for the suppliers in 2- way i.e we will compare two documents PO and Invoice.
+2-way matching verifies that Purchase order and invoice information match within your tolerances:
+Quantity billed <= Quantity Ordered
+Invoice price <= Purchase order price
+E.g.: Suppose we Had given PO for 100 items ,for that we will receive invoice for 100 items. so that we will make payment for that 100 items.
+
+In 3-Way
+You will compare 3 documents i.e PO+reciept+Invoice.
+3-way matching verifies that the receipt and invoice information match with the quantity tolerances defined:
+Quantity billed <= Quantity received.
+E.g.: Suppose we have ordered 100 items in PO. But we had received only 75 items, but we had received invoice for 75 items. So, we will make payment for only 75 items.
+
+
+In 4-Way
+You will compare 4 documents i.e. PO+Receipt+Invoice+Inspection.
+4-way matching verifies that acceptance documents and invoice information match within the quantity tolerances defined:
+Quantity billed <= Quantity accepted.
+E.g.: Suppose we have 100 items in PO. Suppers send us 75 items we will do inspection on those items whatever we have received, if 15items got damaged. Finally, we are going to make payment to the 60 items only
+
+
+Types of Invoices in Oracle Payables 
+Types of Invoices in AP:
+
+The different types of invoices available in Payables are:
+
+1. Standard Invoices: Standard invoices are the invoices issued by a supplier to the buyer, representing the amount due for the products or services the supplier has provided to the buyer.
+
+Standard invoices can be either matched to a purchase order or not matched.
+
+A standard invoice must be positive amount. 
+
+2. Mixed Invoices: Mixed invoices are the invoices which can have either positive or negative amounts and can be matched to both purchase orders and invoices.
+
+For example, if there is a mixed invoice for $-1000, you can either match it to an invoice with $-1000 or to a purchase order with an amount $1000.
+
+3. Credit Memo: Credit memo is an invoice raised by the supplier to the buyer with negative amount. It reduces the supplier balance and reduces the liability.
+
+For example the customer has returned some of the goods that he purchased; the supplier sends a credit memo to the buyer to adjust the balance.
+
+4. Debit Memo: Debit memo is an invoice raised by the customer to supplier with negative amount.
+
+The functionality of Debit Memo is same as Credit Memo. Both are to reduce the liability.
+
+The purpose of Debit Memos is to record a credit for a supplier who does not send you a credit memo.
+
+Unlike in AR, both Credit memo and Debit memo are with negative signs in Payables.
+
+5. Prepayment: Prepayments are the invoices raised to record advance payments to a supplier or employee.
+
+6. Expense Reports: Expense reports are the invoices that represent amount due to an employee for all his business related expenses.
+
+
+7. Withholding Tax:  After you apply withholding tax to an invoice, you can optionally create invoices to remit withheld tax to the tax authority.
+                           
+Payables can automatically create withholding tax invoices, or you can perform this task manually. If you choose to automatically create withholding tax invoices, you must choose whether to do this during Invoice Validation or during payment processing.
+
+
+8. Quick invoices: Used for quick, high-volume invoice entry for invoices that does not require extensive validation and defaults. After entry, you import these into the Payables system. Validation and defaulting occur during import
+
+
